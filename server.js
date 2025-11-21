@@ -10,12 +10,12 @@ const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://localhost:8000/ml/a
 app.use(cors());
 app.use(express.json());
 
-// Health check
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', service: 'backend' });
 });
 
-// Analyze posts: forwards to ML microservice
+
 app.post('/api/analyze', async (req, res) => {
   try {
     const { posts } = req.body;
